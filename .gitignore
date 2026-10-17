@@ -51,3 +51,6 @@ src/mastra/public/
 .vercel
 *.duckdb
 *.duckdb.wal
+
+# Local database backups
+postgres-backup*.dump

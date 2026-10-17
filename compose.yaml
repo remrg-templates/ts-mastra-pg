@@ -1,0 +1,21 @@
+services:
+  # {{ remrg:task Define services }}
+
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Set POSTGRES_DB in .env or the environment}
+      POSTGRES_USER: ${POSTGRES_USER:?Set POSTGRES_USER in .env or the environment}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env or the environment}
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

@@ -1,0 +1,32 @@
+# Version control and local template cache
+**/.git
+**/.remrg/cache
+
+# Editors and operating systems
+**/.idea
+**/.vscode
+**/*.swp
+**/*.swo
+**/*~
+**/.DS_Store
+**/Thumbs.db
+
+# Logs and coverage
+**/logs
+**/*.log
+**/coverage
+
+# Local environment and secrets
+**/.env
+**/.env.*
+!**/.env.example
+**/.secrets
+**/secrets
+**/.ssh
+**/.aws
+**/.azure
+**/.kube
+**/.docker
+
+# Local database backups
+**/postgres-backup*.dump
