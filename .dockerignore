@@ -33,7 +33,14 @@
 
 # Installed or generated inside the application image
 **/node_modules
-.mastra
 dist
 .agents
 .github
+
+# Mastra
+.mastra
+src/mastra/public
+**/*.db
+**/*.db-*
+**/*.duckdb
+**/*.duckdb.wal

@@ -1,8 +1,5 @@
 import { Mastra } from '@mastra/core/mastra';
 import { MastraEditor } from '@mastra/editor';
-import { LibSQLStore } from '@mastra/libsql';
-import { DuckDBStore } from '@mastra/duckdb';
-import { MastraCompositeStore } from '@mastra/core/storage';
 import {
 	MastraStorageExporter,
 	MastraPlatformExporter,
@@ -11,24 +8,12 @@ import {
 } from '@mastra/observability';
 import { agent } from './agents/agent/agent';
 import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
+import { storage } from './storage';
 
 export const mastra = new Mastra({
-	bundler: {
-		externals: ['@duckdb/node-bindings'],
-	},
 	agents: { agent },
 	tools: { startScheduleTool, stopScheduleTool },
-	storage: new MastraCompositeStore({
-		id: 'composite-storage',
-		default: new LibSQLStore({
-			id: 'mastra-storage',
-			url: process.env['TURSO_DATABASE_URL'] || 'file:./mastra.db',
-			authToken: process.env['TURSO_AUTH_TOKEN'] || undefined,
-		}),
-		domains: {
-			observability: await new DuckDBStore().getStore('observability'),
-		},
-	}),
+	storage,
 	observability: new Observability({
 		configs: {
 			default: {

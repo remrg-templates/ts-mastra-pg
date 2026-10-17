@@ -12,6 +12,12 @@ export class Environment extends AppConfig {
 
 	readonly LOCAL_MODEL_URL = 'http://localhost:11434/v1';
 	readonly LOCAL_STABLEDIFFUSION_URL = 'http://localhost:7860/api/txt2img';
+
+	readonly DATABASE_URL: string = '';
+	readonly OBSERVABILITY_DATABASE_URL: string = '';
+
+	// Used only by db:setup when the application's user cannot provision the database.
+	readonly DATABASE_ADMIN_URL: string = '';
 }
 
 /**

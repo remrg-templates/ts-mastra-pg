@@ -1,9 +1,10 @@
-name: ts-mastra-pg
-
+name: remrg/ts-mastra-pg
+track: branch/remrg/v1
 version: 1.0.0
-description: 
+description: 'Mastra with PostgreSQL storage and observability'
 type: feature
 license: MIT
 access: public
 roots:
-- ts-mastra
+  - ts-mastra
+  - docker-postgres

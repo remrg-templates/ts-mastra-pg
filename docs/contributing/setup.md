@@ -42,6 +42,8 @@ Set the following in your `.env`:
 - `POSTGRES_USER`: initial administrative user.
 - `POSTGRES_PASSWORD`: a unique, non-empty password. No default is provided.
 
+For a host-side application or an external database, set `DATABASE_URL` and `OBSERVABILITY_DATABASE_URL` too. Read the [Database Guide](../guides/database.md) for initialization and connection details.
+
 ### Startup
 
 Run docker compose to start:
