@@ -14,6 +14,8 @@ FROM node:22-bookworm-slim AS runtime
 ENV NODE_ENV=production
 WORKDIR /app
 COPY --from=build --chown=node:node /app/.mastra/output ./
+RUN mkdir -p /app/data && chown node:node /app /app/data
 USER node
+VOLUME ["/app/data"]
 EXPOSE 4111
 CMD ["node", "index.mjs"]
