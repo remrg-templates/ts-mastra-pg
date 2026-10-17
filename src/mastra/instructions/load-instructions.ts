@@ -6,7 +6,7 @@ function readFile(filepath: string): string {
 }
 
 export function mergeInstructions(...instructions: string[]): string {
-	return instructions.join('\n');
+	return instructions.join('\n\n');
 }
 
 function loadInstructionsFile(file: string): string {
@@ -27,7 +27,7 @@ function loadInstructionsFile(file: string): string {
 }
 
 function loadGlobalInstructions(): string {
-	return loadInstructionsFile('instructions/global-instructions.md');
+	return loadInstructionsFile('instructions/global.instructions.md');
 }
 
 function loadAgentInstructions(file: string): string {

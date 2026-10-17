@@ -27,7 +27,7 @@ create recurring schedules.',
 			'Build a Japanese sakura festival landing page.',
 		],
 	},
-	instructions: loadInstructions('agent/agent-instructions.md'),
+	instructions: loadInstructions('agent/agent.instructions.md'),
 	model: models.chat.lg,
 	defaultOptions: defaultAgentOptions,
 	memory: new Memory({

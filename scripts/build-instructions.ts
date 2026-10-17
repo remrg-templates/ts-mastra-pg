@@ -14,7 +14,7 @@ export default async function bundleInstructions(): Promise<void> {
 		log.info(`Copying markdown files from ${sourceDir} to ${outputDir}...`);
 
 		// Recursively find and copy markdown files
-		await copyMarkdownFiles(sourceDir, outputDir);
+		await copyInstructionFiles(sourceDir, outputDir);
 
 		log.info('✓ Instruction files copied successfully');
 	}
@@ -24,7 +24,7 @@ export default async function bundleInstructions(): Promise<void> {
 	}
 }
 
-async function copyMarkdownFiles(
+async function copyInstructionFiles(
 	source: string,
 	destination: string
 ): Promise<void> {
@@ -37,9 +37,9 @@ async function copyMarkdownFiles(
 
 		if (entry.isDirectory()) {
 			// Recursively process subdirectories
-			await copyMarkdownFiles(sourcePath, destPath);
+			await copyInstructionFiles(sourcePath, destPath);
 		}
-		else if (entry.isFile() && entry.name.endsWith('.md')) {
+		else if (entry.isFile() && entry.name.endsWith('.instructions.md')) {
 			// Copy markdown files
 			log.info(`Copying: ${sourcePath} -> ${destPath}`);
 			await fs.mkdir(dirname(destPath), { recursive: true });
