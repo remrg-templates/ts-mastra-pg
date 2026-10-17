@@ -49,3 +49,5 @@ Run docker compose to start:
 ```
 docker compose up --build -d
 ```
+
+Open `http://localhost:4111` (or the port set in `.env`). See the [Deployment Guide](./deploy.md) for container details.

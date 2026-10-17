@@ -30,3 +30,10 @@
 
 # Local database backups
 **/postgres-backup*.dump
+
+# Installed or generated inside the application image
+**/node_modules
+.mastra
+dist
+.agents
+.github

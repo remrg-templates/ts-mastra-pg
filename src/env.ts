@@ -6,6 +6,8 @@ import { AppConfig, configure } from 'ts-appconfig';
 export class Environment extends AppConfig {
 	readonly APP_TITLE = '{{ remrg:var project-name }}';
 
+	readonly PORT = 4111;
+
 	readonly OPENAI_API_KEY = '';
 
 	readonly LOCAL_MODEL_URL = 'http://localhost:11434/v1';
